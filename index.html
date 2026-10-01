@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A fast todo app with priorities, filters, inline editing and undo.">
+<title>Todo App</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="app">
+  <header>
+    <div><h1>My Tasks</h1><p id="date"></p></div>
+    <button id="theme" class="ghost" aria-label="Toggle theme">Dark</button>
+  </header>
+  <div class="progress" aria-hidden="true"><span id="bar"></span></div>
+  <p id="stats" class="muted" role="status"></p>
+  <form id="form">
+    <input id="text" type="text" placeholder="What needs doing?" aria-label="New task" maxlength="120" autocomplete="off" required>
+    <select id="pri" aria-label="Priority"><option value="low">Low</option><option value="med" selected>Medium</option><option value="high">High</option></select>
+    <button class="primary" type="submit">Add</button>
+  </form>
+  <div class="tabs" role="group" aria-label="Filter tasks">
+    <button class="tab on" data-f="all">All</button><button class="tab" data-f="active">Active</button><button class="tab" data-f="done">Done</button>
+    <button id="clear" class="ghost">Clear done</button>
+  </div>
+  <ul id="list"></ul>
+  <p id="empty" class="empty" hidden></p>
+  <p class="muted hint">Tip: double-click a task to edit. Press Enter to save, Esc to cancel.</p>
+</main>
+<div id="toast" class="toast" role="status" hidden><span id="toastMsg"></span><button id="undo">Undo</button></div>
+<script src="script.js"></script>
+</body>
+</html>
